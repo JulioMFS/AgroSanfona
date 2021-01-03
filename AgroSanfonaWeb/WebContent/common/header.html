@@ -1,0 +1,39 @@
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,td {
+	text-align: left;
+	padding: 8px;
+	white-space: nowrap;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.btn {
+	height: 50px;
+	width: 100px;
+}
+</style>
+<nav class="navbar navbar-expand-md navbar-dark"
+	style="background-color: tomato">
+	<!-- <div>
+		<a href="https://www.javaguides.net" class="navbar-brand"> Agro
+			Sanfona App </a>
+	</div>   -->
+
+	<ul class="navbar-nav">
+		<a href="<%=request.getContextPath()%>/" class="nav-link"
+			style="font-size: 175%">AgroSanfona</a>
+			<div style="font-size: large;">&nbsp;<%=userName%>'s
+			role is:&nbsp; <%=role%></div>
+			
+		<a href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/RoleBasedLogin/LogoutServlet"
+			class="nav-link" style="font-size: 175%">Logout</a>
+	</ul>
+			
+</nav>
