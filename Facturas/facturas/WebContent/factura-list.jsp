@@ -12,37 +12,8 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous"> -->
-<style>
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
 
-th,td {
-	text-align: left;
-	padding: 2px;
-}
-
-div {
-	text-align: right;
-}
-
-tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-
-.primary-nav {
-	display: -webkit-flex;
-	display: flex;
-	list-style-type: none;
-	padding: 0;
-	justify-content: flex-end;
-}
-
-.left {
-	margin-right: auto;
-}
-</style>
+<%@include file="/common/header.html"%>
 </head>
 <%@page import="java.util.*"%>
 <%
@@ -76,40 +47,13 @@ tr:nth-child(even) {
 		fornecedor = request.getParameter("fornecedor");
 %>
 <body>
-
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: tomato">
-			<div>
-				<a href="https://www.javaguides.net" class="navbar-brand">
-					Factura Management App </a>
-			</div>
-
-			<ul class="primary-nav">
-				<li class="left"><a href="<%=request.getContextPath()%>/"
-					class="nav-link">Facturas</a></li>
-
-				<li class="right"><a
-					href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/AgroSanfonaWeb/"
-					class="nav-link">Agro Sanfona</a></li>
-			</ul>
-		</nav>
-	</header>
+	<header> </header>
 	<!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
-	<br>
-
-	<div class="row">
-
-
-		<div class="container">
-			<h3 class="text-center">Lista de Facturas</h3>
-			<hr>
-
+	<h1 style="text-align: center;">Lista de Facturas</h1>
 			<form action="FacturaServlet" method="post">
 				<table style="with: 50%">
 					<tr>
 						<td><div class="container text-left">
-
 								<a href="<%=request.getContextPath()%>/new"
 									class="btn btn-success">&nbsp;&nbsp;&nbsp;Adicionar Factura
 									&nbsp;&nbsp;&nbsp;</a>
@@ -138,7 +82,6 @@ tr:nth-child(even) {
 
 			</form>
 
-			<br> <br>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -231,6 +174,5 @@ tr:nth-child(even) {
 				request.getSession().setAttribute("fornecedor", fornecedor);
 			%>
 		</div>
-	</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.julio.factura.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,6 +11,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,33 +55,63 @@ public class FacturaServlet extends HttpServlet {
 
 		System.out.println("--------> doGet, action: " + action + ", data1: "
 				+ data1 + ", data2: " + data2 + "designacao: " + designacao);
+		//
+		response.setContentType("text/html");
 
-		try {
-			switch (action) {
-			case "/new":
-				showNewForm(request, response);
-				break;
-			case "/insert":
-				insertFactura(request, response);
-				break;
-			case "/delete":
-				deleteFactura(request, response);
-				break;
-			case "/edit":
-				showEditForm(request, response);
-				break;
-			case "/update":
-				updateFactura(request, response);
-				break;
-			case "/list":
-				listFactura(request, response);
-				break;
-			default:
-				listFactura(request, response);
-				break;
+		PrintWriter pwriter = response.getWriter();
+		String userName = "No User", role = "No Role";
+		// Reading cookies
+		Cookie cookie = null;
+		Cookie[] cookies = null;
+		cookies = request.getCookies();
+		if (cookies != null) {
+			for (int i = 0; i < cookies.length; i++) {
+				cookie = cookies[i];
+				if (cookie.getName().equalsIgnoreCase("userName"))
+					userName = cookie.getValue();
+				if (cookie.getName().equalsIgnoreCase("role"))
+					role = cookie.getValue();
 			}
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
+		} else {
+			pwriter.println("<h2>No cookies founds</h2>");
+		}
+		System.out.println("--> User: " + userName + ", role: " + role
+				+ ", action: ");
+		if (!role.equalsIgnoreCase("Admin")
+				&& (!action.equalsIgnoreCase("/list"))
+				&& (!action.equalsIgnoreCase("/"))
+				&& (!action.equalsIgnoreCase("/FacturaServlet"))) {
+			pwriter.println("<h2>" + role + " not allowed to <mark>" + action
+					+ "</mark> Factura</h2>" + userName + "/" + role);
+			pwriter.close();
+		} else {
+			try {
+				switch (action) {
+				case "/new":
+					showNewForm(request, response);
+					break;
+				case "/insert":
+					insertFactura(request, response);
+					break;
+				case "/delete":
+					deleteFactura(request, response);
+					break;
+				case "/edit":
+					showEditForm(request, response);
+					break;
+				case "/update":
+					updateFactura(request, response);
+					break;
+				case "/list":
+					listFactura(request, response);
+					break;
+				default:
+					listFactura(request, response);
+					break;
+				}
+			} catch (SQLException ex) {
+				throw new ServletException(ex);
+			}
 		}
 	}
 
