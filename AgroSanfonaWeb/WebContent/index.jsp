@@ -109,7 +109,13 @@
 			<tr></tr>
 			<tr></tr>
 			<tr>
-				<td></td>
+				<td>
+					<div class="container text-left">
+						<a
+							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/contadorelectricidade/"
+							class="btn btn-success"> Endesa</a>
+					</div>
+				</td>
 				<td></td>
 				<td></td>
 				<td></td>
