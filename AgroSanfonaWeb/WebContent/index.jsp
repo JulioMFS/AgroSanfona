@@ -49,21 +49,21 @@
 					<div class="container text-left">
 						<a
 							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/facturas/"
-							class="btn btn-success"> Facturas</a>
+							class="btn btn-success" style="background-color:#32cd32"> Facturas</a>
 					</div>
 				</td>
 				<td>
 					<div class="container text-left">
 						<a
 							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/contadorelectricidade/"
-							class="btn btn-success"> Electricidade</a>
+							class="btn btn-success" style="background-color:#7fff00"> Electricidade</a>
 					</div>
 				</td>
 				<td>
 					<div class="container text-left">
 						<a
 							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/Event/"
-							class="btn btn-success"> Evento</a>
+							class="btn btn-success" style="background-color:#6495ed"> Evento</a>
 					</div>
 				</td>
 			</tr>
@@ -72,7 +72,7 @@
 					<div class="container text-left">
 						<a
 							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/guiaEntrada"
-							class="btn btn-success"> Guia de Entrada</a>
+							class="btn btn-success" style="background-color:#dc143c"> Guia de Entrada</a>
 					</div>
 				</td>
 
@@ -85,7 +85,7 @@
 					<div class="container text-left">
 						<a
 							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/BancoExtracto"
-							class="btn btn-success"> Banco Extracto</a>
+							class="btn btn-success" style="background-color:#008b8b"> Banco Extracto</a>
 					</div> <%
  	}
  %>
@@ -97,7 +97,7 @@
 					<div class="container text-left">
 						<a
 							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/IncomeExpenseStatement"
-							class="btn btn-success"> Entradas e Saidas</a>
+							class="btn btn-success" style="background-color:#e9967a"> Entradas e Saidas</a>
 					</div> <%
  	}
  %>
@@ -116,7 +116,13 @@
 							class="btn btn-success" style="background-color:#28afff" > Endesa</a>
 					</div>
 				</td>
-				<td></td>
+							<td>
+					<div class="container text-left">
+						<a
+							href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/diary/list"
+							class="btn btn-success" style="background-color:#b0e0b6" > Agenda</a>
+					</div>
+				</td>
 				<td></td>
 				<td></td>
 				<td></td>
