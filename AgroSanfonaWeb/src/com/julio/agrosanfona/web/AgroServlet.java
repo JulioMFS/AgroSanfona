@@ -29,7 +29,6 @@ public class AgroServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-//----x-x-x-x-x-x-x-x-x-- ---//
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
